@@ -1,0 +1,80 @@
+#include <iostream>
+#include <stack>
+#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int prec(char c)
+{
+    if (c == '^')
+    {
+        return 3;
+    }
+    else if (c == '*' || c == '/')
+    {
+        return 2;
+    }
+    else if (c == '+' || c == '-')
+    {
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+void infix_to_postfix(string s)
+{
+    string postfix;
+    stack<char> st;
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        char c = s[i];
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'z') || (c >= '0' && c <= '9'))
+        {
+            postfix += c;
+        }
+        else if (c == '(')
+        {
+            st.push('(');
+        }
+        else if (c == ')')
+        {
+            while (!st.empty() && st.top() != '(')
+            {
+                char temp = st.top();
+                st.pop();
+                postfix += temp;
+            }
+            st.pop();
+        }
+        else
+        {
+            while (!st.empty() && prec(s[i]) < prec(st.top()))
+            {
+                char temp = st.top();
+                st.pop();
+                postfix += temp;
+            }
+            st.push(c);
+        }
+    }
+    while (!st.empty())
+    {
+        char temp = st.top();
+        st.pop();
+        postfix += temp;
+    }
+    cout << postfix << endl;
+}
+
+int main()
+{
+    string s = "a+b*(c^d-e)^(f+g*h)*i";
+
+    infix_to_postfix(s);
+
+    return 0;
+}
