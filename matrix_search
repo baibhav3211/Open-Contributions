@@ -1,0 +1,32 @@
+#include<iostream>
+
+using namespace std;
+ 
+ int main(){
+     int n,m,k;
+     cin>>n>>m>>k;
+     int arr[1000][1000];
+
+     for(int i=0; i<n; i++){
+         for(int j=0; j<m; j++){
+            cin>>arr[i][j];
+         }
+     }
+
+    int i=0, j=m-1;
+     for(int l=0; l<n+m; l++){    
+            if(arr[i][j]==k){
+                cout<<"k is present on "<<i<<" "<<j<<endl;
+            }
+            else if(arr[i][j]<k){
+                i++;
+                
+            }
+            else{
+                j--;
+            }
+     }
+
+
+     return 0;
+ }
