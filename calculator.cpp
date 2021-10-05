@@ -30,17 +30,17 @@ int calculator(int num1,int num2,int num3)
 
         case 1: cout<<"you have selected Addition"<<endl;
                 num3=num1+num2;
-                cout<<"Addition of two numbers is "<<num3<<endl;
+                cout<<"Sum of "<<num1<<"and "<<num2<< "is "<<num3<<endl;
                 break;
 
         case 2: cout<<"you have selected Subtraction"<<endl;
                 num3=num1-num2;
-                cout<<"Subtraction of two numbers is "<<num3<<endl;
+                cout<<"Difference of "<<num1<<"and " <<num2<<" is "<<num3<<endl;
                 break;
 
         case 3: cout<<"you have selected Multiplication"<<endl;
                 num3=num1*num2;
-                cout<<"Multiplication of two numbers is "<<num3<<endl;
+                cout<<"Product of "<<num1 "and "<<num2<< "is "<<num3<<endl;
                 break;
 
         case 4: cout<<"You have selected Division"<<endl;
