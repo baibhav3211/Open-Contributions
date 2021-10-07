@@ -1,48 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define N 505
-typedef long long ll;
-int n,m,a[N][N],c[N][N],mat[N],vis[N];
-bool dfs(int u){
-	for(int v=2;v<=m;++v){
-		if(c[u][v]&&c[n+1][v]&&!vis[v]){
-			vis[v]=1;
-			if(!mat[v]||dfs(mat[v])){
-				mat[v]=u;
-				return true;
-			}
-		}
-	}
-	return false;
-}
+
+int i,j,k,n,m,t,res,r2;
+bool b[505][505],a[505][505];
+
 int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cin>>n>>m;
-	for(int i=1;i<=n;++i){
-		static char s[N];
-		cin>>(s+1);
-		for(int j=1;j<=m;++j){
-			a[i][j]=s[j]=='B';
-		}	
-	}
-	for(int i=1;i<=n+1;++i){
-		for(int j=1;j<=m+1;++j){
-			c[i][j]=a[i-1][j-1]^a[i-1][j]^a[i][j-1]^a[i][j];	
+	scanf("%d%d",&n,&m);
+	for(i=1;i<=n;i++){
+		for(j=1;j<=m;j++){
+			char c=getchar();
+			b[i][j]=(c=='B');
+			j-=(c!='W'&&c!='B');
 		}
 	}
-	int ans=0;
-	for(int i=2;i<=n+1;++i)
-		for(int j=2;j<=m+1;++j)
-			ans+=c[i][j];
-	ans-=c[n+1][m+1];
-	for(int i=2;i<=n;++i){
-		if(c[i][m+1]){
-			memset(vis,0,sizeof(vis));
-			if(dfs(i))c[n+1][m+1]^=1,--ans;
-		}	
+	for(i=n;i>=1;i--){
+		for(j=m;j>=1;j--){
+			a[i][j]=(b[i][j]^b[i+1][j]^b[i][j+1]^b[i+1][j+1]);
+			res+=a[i][j];
+			if(i!=n&&j!=m&&a[i][j]&&a[n][m]&&a[n][j]&&a[i][m])r2=1;
+		}
 	}
-	ans+=c[n+1][m+1];
-	cout<<ans<<'\n';
-	return 0;
+	printf("%d",res-r2);
 }
