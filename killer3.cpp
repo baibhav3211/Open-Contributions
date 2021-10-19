@@ -1,37 +1,22 @@
 #include<bits/stdc++.h>
-std::mt19937 rnd(time(0));
-const int N = 2e5+10;
-int n,m,a[N];
-std::set<int> g[N];
+using namespace std;
+int M=1e9;
+int ask(int x,int y){
+    cout<<"? "<<x<<' '<<y<<endl;
+    cin>>x;
+    return x;
+}
 int main(){
-    scanf("%d%d",&n,&m);
-    for(int i=1;i<=m;++i){
-        int a,b;
-        scanf("%d%d",&a,&b);
-        g[a].insert(b);
-        g[b].insert(a);
+    int s=ask(1,1),k;
+    int u,v,l=1,r=M,mid;
+    while(r>l+1){
+        mid=l+r>>1;
+        k=ask(1,mid);
+        if(k+mid-1!=s)r=mid;
+        else l=mid;
     }
-    int ok = 0 ;
-    for(int i=1;i<=(int)(1e6);++i){
-        int a[6];
-        for(int j=1;j<=5;++j){
-            a[j] = rnd()%n+1;
-        }
-        int s = g[a[1]].count(a[2]),fl = 1 ;
-        for(int j=1;j<=5;++j)
-            for(int k=j+1;k<=5;++k){
-                if(a[j]==a[k]||s!=g[a[j]].count(a[k])){
-                    fl = 0;
-                    break;
-                }
-            }
-        if(fl){
-            for(int i=1;i<=5;++i)
-                printf("%d ",a[i]);
-            ok=1;
-            break;
-        }
-    }
-    if(!ok) puts("-1");
+    u=ask(1,l)+1;
+    v=l;
+    printf("! %d %d %d %d",u,v,v-1+M-ask(M,1),u-1+M-ask(1,M));
     return 0;
 }
