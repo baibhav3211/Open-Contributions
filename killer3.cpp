@@ -1,22 +1,38 @@
 #include<bits/stdc++.h>
+#define N 42
 using namespace std;
-int M=1e9;
-int ask(int x,int y){
-    cout<<"? "<<x<<' '<<y<<endl;
-    cin>>x;
-    return x;
-}
-int main(){
-    int s=ask(1,1),k;
-    int u,v,l=1,r=M,mid;
-    while(r>l+1){
-        mid=l+r>>1;
-        k=ask(1,mid);
-        if(k+mid-1!=s)r=mid;
-        else l=mid;
+int T,n,a,b,ans;
+int cur[N],res[N];
+char s[N];
+bool vis[N][N][N][N];
+void dfs(int x,int moda,int modb,int cnta){
+    if(vis[x][moda][modb][cnta]) return;
+    vis[x][moda][modb][cnta]=1;
+    if(x>n){
+        if(!moda&&!modb&&cnta&&cnta<n&&abs(n-2*cnta)<ans){
+            ans=abs(n-2*cnta);
+            for(int i=1;i<=n;i++) res[i]=cur[i];
+        }
+        return;
     }
-    u=ask(1,l)+1;
-    v=l;
-    printf("! %d %d %d %d",u,v,v-1+M-ask(M,1),u-1+M-ask(1,M));
+    cur[x]=0;
+    dfs(x+1,(moda*10+s[x]-'0')%a,modb,cnta+1);
+    cur[x]=1;
+    dfs(x+1,moda,(modb*10+s[x]-'0')%b,cnta);
+}
+void solve(){
+    cin>>n>>a>>b>>s+1;
+    memset(vis,0,sizeof(vis));
+    ans=1e9;
+    dfs(1,0,0,0);
+    if(ans==1e9) cout<<-1<<endl;
+    else{
+        for(int i=1;i<=n;i++) cout<<(res[i]?'B':'R');
+        cout<<endl;
+    }
+} 
+signed main(){
+    cin>>T;
+    while(T--) solve();
     return 0;
 }
