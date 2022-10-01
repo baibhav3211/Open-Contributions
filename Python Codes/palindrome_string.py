@@ -5,6 +5,6 @@ def palin_string(strng):
 strng = input("Input a String: ")
 
 if palin_string(strng):
-	print("\n", strng, " is palindrome.")
+	print("\n", strng, " is a palindrome.")
 else:
 	print(strng, " is not a palindrome")
