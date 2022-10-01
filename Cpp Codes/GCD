@@ -1,3 +1,4 @@
+// Iterative way to find GCD of two number
 #include <iostream>
 using namespace std;
 
@@ -23,3 +24,40 @@ int main() {
 
   return 0;
 }
+
+/*   Recursion code for GCD of the two numbers*/
+
+#include <iostream>
+using namespace std;
+
+int gcd(int first, int second)
+{
+	// Everything divides 0
+  if (second == 0)
+	  return first;
+	if (first == 0)
+	  return second;
+
+
+	// base case when both numbers are equal to each other 
+	if (first == second)
+		return first;
+
+	// a is greater than b
+	if (first > second)
+		return gcd(first-second, second);
+
+	return gcd(first, second-first);
+}
+
+
+int main()
+{
+	  int n1, n2, hcf;
+  cout << "Enter two numbers: ";
+  cin >> n1 >> n2;
+  hcf = gcd(n1,n2);
+  cout << "HCF = " << hcf;
+	return 0;
+}
+
