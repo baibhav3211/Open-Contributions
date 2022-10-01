@@ -7,4 +7,4 @@ strng = input("Enter a String: ")
 if palin_string(strng):
 	print("\n", strng, " is palindrome.")
 else:
-	print(strng, " is not palindrome")
+	print(strng, " is not a palindrome")
