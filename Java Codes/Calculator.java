@@ -33,9 +33,8 @@ public class Calculator {
                 }
                 if (op == '%') {
                     ans = num1 % num2;
-
-
-                } else if (op == 'x' || op == 'X') {
+                } 
+                else if (op == 'x' || op == 'X') {
                 }
                 break;
             }
