@@ -32,6 +32,7 @@ void merge(vector<int> &array, int s, int e){
     return;
 }
 
+/*function to perform merge sort*/
 void mergesort(vector<int> &array, int s, int e){
     if(s < e){
         int mid = (s+e)/2;
