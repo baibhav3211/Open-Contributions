@@ -12,4 +12,4 @@ while(nno > 0):
 if(rno == num):
     print(num, " is a palindrome number")
 else:
-    print(num, " is not palindrome!")
+    print(num, " is not a palindrome!")
