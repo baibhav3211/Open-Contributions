@@ -1,5 +1,5 @@
-// You are given a list of n strings a1,a2,......an.You would
-// like to concatenate them together in some order such that
+// You are given a list of n strings a1,a2,......an.
+// You would like to concatenate them together in some order such that
 // the resulting string would be lexicographically smallest.
 // Given the list of strings, output the lexicographically
 // smallest concatenation.
