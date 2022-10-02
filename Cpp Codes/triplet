@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<math.h>
 using namespace std;
+
 int max(int x, int y, int z){
     if(x>y){
         if(x>z){
@@ -18,6 +19,7 @@ int max(int x, int y, int z){
     return z;
     }
 }
+
 bool pythogorean(int n1, int n2, int n3){
     int max_num = max(n1,n2,n3);
     int b;
@@ -39,6 +41,7 @@ bool pythogorean(int n1, int n2, int n3){
     }
     return false;
 }
+
 int main(){
     system("CLS");
     int a,b,c;
