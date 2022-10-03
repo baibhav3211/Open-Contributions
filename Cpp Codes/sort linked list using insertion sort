@@ -1,0 +1,123 @@
+/*
+* C++ Implementation for Insertion Sort on a Singly Linked List
+*/
+#include 
+using namespace std;
+/*
+*ListNode is a data structure used to represents each node of our linked list
+*/
+struct ListNode
+{
+    int data;
+    struct ListNode *next;
+};
+
+/* 
+ It’s Implemented to insert data in the sorted list at the correct position
+*/
+
+void SortedPush(struct ListNode **head, struct ListNode *newListNode)
+{
+    // current node
+    struct ListNode *curr;
+
+    if (*head == NULL or (*head)->data > newListNode->data)
+        newListNode->next = *head, *head = newListNode;
+    else
+    {
+        // Need to locate the correct place to insert ListNode in the sorted linked list
+        curr = *head;
+        while (curr->next != NULL && curr->next->data <= newListNode->data)
+            curr = curr->next;
+        newListNode->next = curr->next, curr->next = newListNode;
+    }
+}
+
+/*
+* This is the driver function to sort the linked list using Insertion Sort
+*/
+void InsertionSort(struct ListNode **head)
+{
+    // Initialize sorted linked list as a NULL.
+    // it is the set which we will keep sorted and insert the last processed node in it at every iteration.
+    struct ListNode *sortedList = NULL;
+
+    /* Travel given list and insert every node in sorted list at it's correct position */
+    struct ListNode *curr = *head;
+    while (curr != NULL)
+    {
+        // Store the next node of curr for next iteration
+        struct ListNode *next = curr->next;
+        // Inserting current in sorted linked list
+        SortedPush(&sortedList, curr);
+        // Updating current
+        curr = next;
+    }
+    /* Update head to point to the sorted list */
+    *head = sortedList;
+}
+
+/*
+* Function to print the provided linked list 
+*/
+void PrintList(struct ListNode *head)
+{
+    struct ListNode *tp = head;
+    while (tp != NULL)
+    {
+        cout << tp->data << " ";
+        tp = tp->next;
+    }
+}
+
+/*
+* Function used to Push the node with a given in a linked list
+*/
+void Push(struct ListNode **last, struct ListNode **head, int data)
+{
+    // allocating new node
+    struct ListNode *newListNode = new ListNode;
+
+    // insert data in new node
+    newListNode->data = data;
+    newListNode->next = NULL;
+
+    // inserting node at the end of list
+    if (*head == NULL)
+    {
+        (*head) = newListNode;
+        (*last) = (*head);
+    }
+    else
+    {
+        (*last)->next = newListNode;
+        (*last) = newListNode;
+    }
+}
+
+/*
+* Main function 
+*/
+int main()
+{
+    // Creating a empty linked list to perform insertion sort on it
+    struct ListNode *a = NULL, *last = a;
+
+    // Interesting some nodes in it
+    Push(&last, &a, 5);
+    Push(&last, &a, 4);
+    Push(&last, &a, 2);
+    Push(&last, &a, 7);
+    Push(&last, &a, 1);
+    Push(&last, &a, 6);
+
+    cout << "Linked List before sorting \n";
+    PrintList(a);
+
+    // performing insertion sort on given list
+    InsertionSort(&a);
+
+    cout << "\nLinked List after performing insertion sort \n";
+    PrintList(a);
+    return 0;
+}
