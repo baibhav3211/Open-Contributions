@@ -10,6 +10,6 @@ while(nno > 0):
     nno = nno // 10
 
 if(rno == num):
-    print(num, " is a palindrome number")
+    print(num, " :- palindrome")
 else:
-    print(num, " is not palindrome!")
+    print(num, " :- not palindrome!")
