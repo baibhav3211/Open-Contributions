@@ -1,0 +1,94 @@
+EduLight
+
+BLOG
+Home Blog Pemrograman Berorientasi Objek View
+Program Sederhana C++ Menghitung Luas Persegi dan Persegi Panjang
+PROGRAM SEDERHANA C++ MENGHITUNG LUAS PERSEGI DAN PERSEGI PANJANG
+ 03 April 2021  By RINTAN FEBRIANTI  Pemrograman Berorientasi Objek
+Program sederhana c ++ menghitung luas persegi dan persegi panjang
+
+Bagi kalian yang sedang kuliah, khususnya ambil jurusan teknik informatika, pasti tengah belajar salah satu materi program, salah satunya adalah bahasa pemrograman c ++. Sebelum melangkah lebih jauh alangkah baikknya terlebih dahulu terlebih dahulu apa itu c ++.
+
+C ++ adalah salah satu bahasa pemprograman dasar yang merupakan perkembangan dari bahasa c yang di buat oleh bjarne stroustrub pada tahun 1970
+
+Salah satu keunggulan dari bahasa pemrograman ini adalah yang mengutamakan kecepatan sistem, yang memiliki kualitas dan layanan, bahasa c ++ ini sangat untuk membuat aplikasi dekstop, server dll.
+
+Bahasa pemrograman c ++ ini juga memiliki struktur bahasa programing antara lain:
+
+Struktur bahasa bagian komentar
+
+Struktur bahasa pengarah kompiler c ++
+
+Pengarah kompiler termasuk
+
+Pengarah compiler #ifdef, #ifndf
+
+Pengarah compiler #if, # else, # endif, #elif
+
+Definisi dan deklarasi c ++
+
+Sudah mudeng? Oke, sebelum kalian melangkah lebih jauh mengenai bahasa pemrograman c ++ tahu kalian sudah paham terlebih dahulu contoh-contoh program sederhana yang dibuat dengan bahasa c ++ ini.
+
+Kalian bisa membuat program sederhana seperti, menghitung luas persegi dan persegi panjang, memasukkan biodata, kemudian yang paling sederhana tanpa kata hello word, kalian bisa mempelajari lebih lanjut mengenai bahasa c ++ ini pada website resminya
+
+Disini kami memiliki contoh program sederhana c ++ tentang menghitung luas persegi dan persegi panjang
+
+Program ini sudah dibuat dengan se simpel mungkin agar kalian dapat memahaminya, berikut contoh programnya
+
+Program menghitung luas persegi
+
+#include
+
+Menggunakan namespace std;
+
+Int main () {
+
+            int l, s;
+
+            cout << "===============================\n";
+
+            cout << "program menghitung luas persegi\n";
+
+            cout << "===============================\n";
+
+            cout << "masukkan panjang sisi persegi: ";
+
+            cin >> s;
+
+            l = s*s;
+
+            cout << "luas persegi adalah "<< l << endl;
+
+            return 0;
+
+}
+
+Program menghitung luas persegi panjang
+
+#include
+
+#include "conio.h"
+
+Using namespace std;
+
+Int main(){
+
+            int p, l;
+
+            cout<<"========================================"<
+
+            cout<<"program penghitung luas persegi panjang\n"<
+
+            cout<<"========================================"<
+
+            cout<<"masukkan nilai panjang= ";
+
+            cin>>p;
+
+            cout<<"masukkan nilai lebar= ";
+
+            cin>>l;
+
+            cout << "luas persegi panjang ="; cout << (p * l);
+
+            getch ();
