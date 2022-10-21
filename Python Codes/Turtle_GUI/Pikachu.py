@@ -1,12 +1,12 @@
-import turtle
+# python code to draw cartoon character Pikachu using turtle
 
+import turtle
 
 def setup(x, y):
     turtle.setx(x)
     turtle.sety(y)
     print(x, y)
-
-
+    
 class Draw_Pikachu:
 
     def __init__(self):

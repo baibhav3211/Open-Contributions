@@ -1,7 +1,7 @@
+# python code to draw cartoon character Doraemon using turtle
+
 from turtle import *
 
-
-# Doraemon with Python Turtle
 def ankle(x, y):
     penup()
     goto(x, y)
