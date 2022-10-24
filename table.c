@@ -1,6 +1,5 @@
-// exercise 1 
-
-// alternative solution using do while loop
+//Print multiplication table for a number n proivided by user.
+// Author: Siddhant N.
 
 #include<stdio.h>
 
